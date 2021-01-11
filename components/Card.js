@@ -1,7 +1,6 @@
-import Image from 'next/image';
 import { BiCheckShield } from 'react-icons/bi';
 import { AiOutlineLink } from 'react-icons/ai';
-import { Badge } from './';
+import { Badge, Img } from './';
 
 const fieldNames = {
   'Bank Name': 'name',
@@ -132,21 +131,9 @@ export const Card = ({
           )}
         </div>
         <div className='flex flex-row'>
-          {webapp && (
-            <div className='px-1'>
-              <Image src='/images/website.png' height='25' width='27' />
-            </div>
-          )}
-          {android && (
-            <div className='px-1'>
-              <Image src='/images/google-play.png' height='25' width='25' />
-            </div>
-          )}
-          {ios && (
-            <div className='px-1'>
-              <Image src='/images/ios.png' height='25' width='26' />
-            </div>
-          )}
+          {webapp && <Img src='/images/website.png' />}
+          {android && <Img src='/images/google-play.png' />}
+          {ios && <Img src='/images/ios.png' />}
         </div>
       </div>
       <div className='py-2'>
