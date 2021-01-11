@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import GithubCorner from 'react-github-corner';
 import { PageLayout, Card } from '../components';
 import { buildRelationships } from '../helpers';
@@ -8,6 +9,9 @@ const Home = () => {
 
   return (
     <PageLayout>
+      <Head>
+        <title>NSS</title>
+      </Head>
       <GithubCorner href='https://github.com/elijah-penney/not-so-simple' />
       <div className='text-center py-32 text-3xl'>
         <a
