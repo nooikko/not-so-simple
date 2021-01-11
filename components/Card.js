@@ -133,18 +133,18 @@ export const Card = ({
         </div>
         <div className='flex flex-row'>
           {webapp && (
-            <div className='px-1.5'>
-              <Image src='/images/website.png' height='35' width='37' />
+            <div className='px-1'>
+              <Image src='/images/website.png' height='25' width='27' />
             </div>
           )}
           {android && (
-            <div className='px-1.5'>
-              <Image src='/images/google-play.png' height='35' width='35' />
+            <div className='px-1'>
+              <Image src='/images/google-play.png' height='25' width='25' />
             </div>
           )}
           {ios && (
-            <div className='px-1.5'>
-              <Image src='/images/ios.png' height='35' width='36' />
+            <div className='px-1'>
+              <Image src='/images/ios.png' height='25' width='26' />
             </div>
           )}
         </div>
