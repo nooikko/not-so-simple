@@ -1,11 +1,11 @@
 import GithubCorner from 'react-github-corner';
 import { PageLayout, Card } from '../components';
+import { buildRelationships } from '../helpers';
 import banks from '../constants/banks.json';
 
-const simpleBank = banks.filter(({ name }) => name === 'Simple');
-const restBanks = banks.filter(({ name }) => name !== 'Simple');
-
 const Home = () => {
+  const banksWithFeatures = buildRelationships(banks);
+
   return (
     <PageLayout>
       <GithubCorner href='https://github.com/elijah-penney/not-so-simple' />
@@ -39,8 +39,8 @@ const Home = () => {
       </div>
 
       <div className='grid grid-cols-3 gap-4 pt-6'>
-        {restBanks.map((data) => (
-          <Card key={data.name} {...data} simple={simpleBank[0]} />
+        {banksWithFeatures.map((data) => (
+          <Card key={data.name} {...data} />
         ))}
       </div>
     </PageLayout>

@@ -1,34 +1,5 @@
 const fs = require('fs');
-
-const fieldNames = {
-  'Bank Name': 'name',
-  'Verified By Mod': 'verified',
-  'Checking Account': 'checking',
-  'Savings Account': 'savings',
-  'Investing Options': 'investing',
-  'Joint Accounts': 'joint',
-  Expenses: 'expenses',
-  Goals: 'goals',
-  'Safe To Spend': 'safetospend',
-  'Round Up': 'roundup',
-  'Savings Rate': 'savingsrate',
-  'Online Bill Pay': 'onlinebillpay',
-  'Mobile Deposits': 'mobilecheckdeposit',
-  Checks: 'checks',
-  Venmo: 'venmo',
-  Zelle: 'zelle',
-  'Outgoing Wires': 'outgoingwires',
-  'Incoming Wires': 'incomingwires',
-  'No Fees': 'nofees',
-  'Business Banking': 'businessbanking',
-  'Card Type': 'cardtype',
-  'Big Bank Backer': 'backer',
-  Website: 'website',
-  'Plaid Integration': 'plaid',
-  Web: 'webapp',
-  Ios: 'ios',
-  Android: 'android',
-}
+const fieldNames = require('../constants/fieldNames.json');
 
 const csv = fs.readFileSync('./data/simple.csv', {encoding: 'utf-8'});
 const rows = csv.split('\n');

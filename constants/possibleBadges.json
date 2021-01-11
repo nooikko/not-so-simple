@@ -1,0 +1,20 @@
+{
+  "Checking Account": "checking",
+  "Savings Account": "savings",
+  "Investing Options": "investing",
+  "Joint Accounts": "joint",
+  "Expenses": "expenses",
+  "Goals": "goals",
+  "Safe To Spend": "safetospend",
+  "Round Up": "roundup",
+  "Online Bill Pay": "onlinebillpay",
+  "Mobile Deposits": "mobilecheckdeposit",
+  "Checks": "checks",
+  "Venmo": "venmo",
+  "Zelle": "zelle",
+  "Outgoing Wires": "outgoingwires",
+  "Incoming Wires": "incomingwires",
+  "No Fees": "nofees",
+  "Business Banking": "businessbanking",
+  "Plaid Integration": "plaid"
+}
