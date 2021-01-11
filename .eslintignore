@@ -1,0 +1,4 @@
+*.mdx
+*.css
+webpack*
+data
