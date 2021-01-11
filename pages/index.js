@@ -1,6 +1,6 @@
 import GithubCorner from 'react-github-corner';
 import { PageLayout, Card } from '../components';
-import banks from '../banks.json';
+import banks from '../constants/banks.json';
 
 const simpleBank = banks.filter(({ name }) => name === 'Simple');
 const restBanks = banks.filter(({ name }) => name !== 'Simple');

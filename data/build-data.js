@@ -87,4 +87,4 @@ function buildJSON(rows, fieldNames) {
   return output;
 }
 
-fs.writeFileSync('./banks.json', JSON.stringify(buildJSON(rows, fieldNames)));
+fs.writeFileSync('./constants/banks.json', JSON.stringify(buildJSON(rows, fieldNames)));
