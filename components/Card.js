@@ -1,6 +1,7 @@
 import { BiCheckShield } from 'react-icons/bi';
-import { AiOutlineLink } from 'react-icons/ai';
-import { Badge, Img } from './';
+import { HiOutlineExternalLink } from 'react-icons/hi';
+import { Tooltip } from 'antd';
+import { Badge, AppCheck } from './';
 
 export const Card = ({
   name,
@@ -19,52 +20,68 @@ export const Card = ({
   return (
     <div className='rounded-md p-3 border-solid bg-white border-2 border-gray-300'>
       <div className='flex justify-between'>
-        <div className='font-bold text-3xl text-purple-600 flex flex-row items-center'>
-          <a
-            href={website}
-            className='pr-2 flex items-center hover:text-purple-400'
-            target='_blank'
-            rel='noreferrer'
-          >
+        <div className='font-bold  flex flex-row items-center pb-2'>
+          <span className='text-purple-600 pr-3 text-3xl leading-5'>
             {name}
-            <span className='pl-2'>
-              <AiOutlineLink />
-            </span>
-          </a>
+          </span>
           {verified && (
-            <span className='text-green-600'>
-              <BiCheckShield />
+            <span className='text-green-600 text-2xl'>
+              <Tooltip title='Admin Verified'>
+                <BiCheckShield />
+              </Tooltip>
             </span>
           )}
         </div>
-        <div className='flex flex-row'>
-          {webapp && <Img src='/images/website.png' alt='Website Icon' />}
-          {android && (
-            <Img src='/images/google-play.png' alt='Google Play Store Icon' />
-          )}
-          {ios && <Img src='/images/ios.png' alt='Apple App Store Icon' />}
+        <div className='flex flex-row items-start'>
+          <a href={website} target='_blank' rel='noreferrer' className='flex'>
+            <span className='pr-1 leading-3'>Visit Site</span>
+            <HiOutlineExternalLink />
+          </a>{' '}
         </div>
       </div>
       <div className='py-2'>
-        <h2 className='font-bold text-lg pb-1'>General Info</h2>
-        <div className='grid grid-cols-2 gap-y-2'>
+        <h2 className='font-bold text-lg'>General Info</h2>
+        <div className='grid grid-cols-3 gap-y-2'>
           <div>
-            <h3 className='font-medium'>Backing Bank</h3>
+            <h3 className='font-medium my-0'>Backing Bank</h3>
             <div className='text-gray-600'>{backer}</div>
           </div>
           <div>
-            <h3 className='font-medium'>Savings Rate</h3>
+            <h3 className='font-medium my-0'>Savings Rate</h3>
             <div className='text-gray-600'>{savingsrate}</div>
           </div>
           <div>
-            <h3 className='font-medium'>Card Type</h3>
+            <h3 className='font-medium my-0'>Card Type</h3>
             <div className='text-gray-600'>{cardtype}</div>
+          </div>
+        </div>
+      </div>
+      <div className='py-2'>
+        <h2 className='font-bold text-lg'>Applications</h2>
+        <div className='grid grid-cols-3 gap-y-2'>
+          <div className='flex items-center'>
+            <div className='text-gray-600 pr-1'>Website</div>
+            <div>
+              <AppCheck exists={webapp} />
+            </div>
+          </div>
+          <div className='flex items-center'>
+            <div className='text-gray-600 pr-1'>Android</div>
+            <div>
+              <AppCheck exists={android} />
+            </div>
+          </div>
+          <div className='flex items-center'>
+            <div className='text-gray-600 pr-1'>IOS</div>
+            <div>
+              <AppCheck exists={ios} />
+            </div>
           </div>
         </div>
       </div>
       {Boolean(matching.length) && (
         <div className='py-2'>
-          <h2 className='font-medium text-lg pb-2'>Matching Features</h2>
+          <h2 className='font-medium text-lg'>Matching Features</h2>
           <div className='grid grid-cols-3 gap-2'>
             {matching.map((item) => (
               <Badge key={item} name={item} matching />
@@ -74,7 +91,7 @@ export const Card = ({
       )}
       {Boolean(missing.length) && (
         <div className='py-2'>
-          <h2 className='font-medium text-lg pb-2'>Missing Features</h2>
+          <h2 className='font-medium text-lg'>Missing Features</h2>
           <div className='grid grid-cols-3 gap-2'>
             {missing.map((item) => (
               <Badge key={item} name={item} missing />
@@ -84,7 +101,7 @@ export const Card = ({
       )}
       {Boolean(fresh.length) && (
         <div className='py-2'>
-          <h2 className='font-medium text-lg pb-2'>Other Features</h2>
+          <h2 className='font-medium text-lg'>Other Features</h2>
           <div className='grid grid-cols-3 gap-2'>
             {fresh.map((item) => (
               <Badge key={item} name={item} fresh />

@@ -9,6 +9,7 @@
     "build-data": "node ./data/build-data.js"
   },
   "dependencies": {
+    "antd": "^4.10.2",
     "autoprefixer": "^10.2.1",
     "next": "10.0.5",
     "postcss": "^8.2.4",
