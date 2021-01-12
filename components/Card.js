@@ -38,9 +38,11 @@ export const Card = ({
           )}
         </div>
         <div className='flex flex-row'>
-          {webapp && <Img src='/images/website.png' />}
-          {android && <Img src='/images/google-play.png' />}
-          {ios && <Img src='/images/ios.png' />}
+          {webapp && <Img src='/images/website.png' alt='Website Icon' />}
+          {android && (
+            <Img src='/images/google-play.png' alt='Google Play Store Icon' />
+          )}
+          {ios && <Img src='/images/ios.png' alt='Apple App Store Icon' />}
         </div>
       </div>
       <div className='py-2'>
