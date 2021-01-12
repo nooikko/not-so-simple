@@ -1,11 +1,17 @@
 import Head from 'next/head';
 import GithubCorner from 'react-github-corner';
+import Select from 'react-select';
 import { PageLayout, Card } from '../components';
-import { buildRelationships } from '../helpers';
+import { buildRelationships, buildFilters, handleFilters } from '../helpers';
 import banks from '../constants/banks.json';
+import { useState } from 'react';
 
 const Home = () => {
   const banksWithFeatures = buildRelationships(banks);
+
+  const [filters, setFilters] = useState([]);
+
+  const banksToShow = handleFilters(banksWithFeatures, filters);
 
   return (
     <PageLayout>
@@ -21,7 +27,7 @@ const Home = () => {
           Simple is closing.
         </a>{' '}
         Here's some alternatives.
-        <div className='w-100 flex justify-center py-6 text-lg'>
+        <div className='w-100 flex justify-center pt-6 text-lg'>
           <span>
             <a
               href='https://www.reddit.com/r/SimpleBanking/comments/ksjpw5/megathread_for_discussing_alternatives/gigdx7f?utm_source=share&utm_medium=web2x&context=3'
@@ -41,8 +47,19 @@ const Home = () => {
           </span>
         </div>
       </div>
-      <div className='grid sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 pt-6'>
-        {banksWithFeatures.map((data) => (
+      <div className='flex justify-end'>
+        <div className='inline-block w-72'>
+          <label>Filters</label>
+          <Select
+            isMulti
+            instanceId='filter-select'
+            options={buildFilters()}
+            onChange={setFilters}
+          />
+        </div>
+      </div>
+      <div className='grid sm:grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-4 pt-6'>
+        {banksToShow.map((data) => (
           <Card key={data.name} {...data} />
         ))}
       </div>
