@@ -5,16 +5,12 @@ export const handleFilters = (banks, filters) => {
 
   return banks.filter((bank) => {
     const { matching, fresh } = bank;
+    const allFeatures = [...matching, ...fresh];
 
-    const matchFilter = filterValues
-      .map((filter) => matching.includes(filter))
-      .every((item) => Boolean(item));
-    const freshFilter = filterValues
-      .map((filter) => {
-        return fresh.includes(filter);
-      })
-      .every((item) => Boolean(item));
+    const matches = filterValues
+      .map((filter) => allFeatures.includes(filter))
+      .every((x) => Boolean(x));
 
-    return matchFilter || freshFilter;
+    return matches;
   });
 };

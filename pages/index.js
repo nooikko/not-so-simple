@@ -48,7 +48,7 @@ const Home = () => {
         </div>
       </div>
       <div className='flex justify-end'>
-        <div className='inline-block w-72'>
+        <div className='inline-block w-96'>
           <label>Filters</label>
           <Select
             isMulti
