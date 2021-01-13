@@ -27,7 +27,7 @@ const Home = () => {
           Simple is closing.
         </a>{' '}
         Here's some alternatives.
-        <div className='w-100 flex justify-center pt-6 text-lg'>
+        <div className='w-100 flex flex-col justify-center pt-6 text-lg'>
           <span>
             <a
               href='https://www.reddit.com/r/SimpleBanking/comments/ksjpw5/megathread_for_discussing_alternatives/gigdx7f?utm_source=share&utm_medium=web2x&context=3'
@@ -45,6 +45,13 @@ const Home = () => {
               11jwolfe2
             </a>
           </span>
+          <span className='text-red-500'>
+            Data is representative of the spreadsheet at the time of updating.
+          </span>
+          <span className='text-red-500 leading-3'>
+            Some data may be inaccurate while being validated.
+          </span>
+          <span className='pt-2'>Last Updated: 8PM January 12, 2021 (MST)</span>
         </div>
       </div>
       <div className='flex justify-end'>
