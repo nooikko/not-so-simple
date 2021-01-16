@@ -1,7 +1,0 @@
-html {
-  height: unset;
-}
-
-body, #__next {
-  height: 100%;
-}
