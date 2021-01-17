@@ -1,4 +1,4 @@
-import { Logo } from '@components';
+import { Logo, Menu } from '@components';
 
 /**
  * @namespace Components/PageLayout
@@ -6,9 +6,10 @@ import { Logo } from '@components';
 export const PageLayout: React.FC = ({ children }) => {
   return (
     <div className='h-full w-full bg-gray-100'>
-      <div className='flex flex-col container mx-auto px-6 lg:px-24'>
-        <div className='my-4'>
+      <div className='flex flex-col container mx-auto xl:px-18 px-1'>
+        <div className='my-4 flex flex-row justify-between mb-8'>
           <Logo />
+          <Menu />
         </div>
         <div>{children}</div>
       </div>
