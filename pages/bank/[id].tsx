@@ -5,6 +5,7 @@ import {
   Card,
   Link,
   BankFeatureSection,
+  FeatureDescription,
 } from '@components';
 import { FaChevronLeft } from 'react-icons/fa';
 
@@ -49,6 +50,13 @@ const mockOther = [
   'Outgoing Wires',
 ];
 
+const lorem = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
+pretium dolor non sapien varius aliquet. Duis pretium faucibus
+finibus. Duis maximus ligula nunc, eu luctus nisi convallis at.
+Suspendisse auctor justo et urna vestibulum tincidunt. Proin sem
+enim, tempus nec consequat non, bibendum id lectus. In hac
+habitasse platea dictumst.`;
+
 const Bank = () => {
   const { query } = useRouter();
 
@@ -74,14 +82,7 @@ const Bank = () => {
               <h1 className='text-3xl font-bold'>Simple</h1>
             </div>
             <QuickInfo apr='0.50' cardtype='Visa' nofees={true} />
-            <div>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-              pretium dolor non sapien varius aliquet. Duis pretium faucibus
-              finibus. Duis maximus ligula nunc, eu luctus nisi convallis at.
-              Suspendisse auctor justo et urna vestibulum tincidunt. Proin sem
-              enim, tempus nec consequat non, bibendum id lectus. In hac
-              habitasse platea dictumst.
-            </div>
+            <div>{lorem}</div>
             <BankFeatureSection
               title='Matching Features'
               features={mockFeatures}
@@ -99,16 +100,11 @@ const Bank = () => {
             />
             <div>
               <h3 className='text-lg font-medium mb-2'>Feature Descriptions</h3>
-              <div className='font-medium'>
-                Expenses -{' '}
-                <span className='text-gray-600'>Expected Q1 2021</span>
-              </div>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-              pretium dolor non sapien varius aliquet. Duis pretium faucibus
-              finibus. Duis maximus ligula nunc, eu luctus nisi convallis at.
-              Suspendisse auctor justo et urna vestibulum tincidunt. Proin sem
-              enim, tempus nec consequat non, bibendum id lectus. In hac
-              habitasse platea dictumst.
+              <FeatureDescription
+                title='Expenses'
+                releaseDate='Q1 2021'
+                description={lorem}
+              />
             </div>
           </Card>
         </div>

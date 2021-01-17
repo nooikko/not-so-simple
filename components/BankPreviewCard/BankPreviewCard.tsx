@@ -1,8 +1,5 @@
 import Link from 'next/link';
 import { GoLinkExternal } from 'react-icons/go';
-import { FiCreditCard } from 'react-icons/fi';
-import { MdLocalAtm } from 'react-icons/md';
-import { FaBalanceScaleLeft } from 'react-icons/fa';
 import { Badge, Card, QuickInfo } from '@components';
 
 const mockFeatures = [

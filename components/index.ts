@@ -9,3 +9,4 @@ export * from './Card';
 export * from './Link';
 export * from './BankFeatureSection';
 export * from './QuickInfo';
+export * from './FeatureDescription';
