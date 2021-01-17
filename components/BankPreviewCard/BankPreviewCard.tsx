@@ -3,7 +3,7 @@ import { GoLinkExternal } from 'react-icons/go';
 import { FiCreditCard } from 'react-icons/fi';
 import { MdLocalAtm } from 'react-icons/md';
 import { FaBalanceScaleLeft } from 'react-icons/fa';
-import { Badge } from '@components';
+import { Badge, Card, QuickInfo } from '@components';
 
 const mockFeatures = [
   'Checking Account',
@@ -24,7 +24,7 @@ const mockFeatures = [
  */
 export const BankPreviewCard: React.FC = () => {
   return (
-    <div className='bg-white rounded shadow w-100 p-5 grid gap-4'>
+    <Card>
       <div>
         <div className='flex justify-between'>
           <h2 className='text-sm font-medium text-gray-400'>BBVA</h2>
@@ -37,20 +37,7 @@ export const BankPreviewCard: React.FC = () => {
         </div>
         <h1 className='text-2xl font-bold'>Simple</h1>
       </div>
-      <div className='flex'>
-        <div className='flex items-center pr-6 font-medium'>
-          <MdLocalAtm className='text-xl mr-1 sm:mr-2 text-gray-500' />
-          0.50% APY
-        </div>
-        <div className='flex items-center pr-6 font-medium'>
-          <FiCreditCard className='text-lg mr-1 sm:mr-2 text-gray-500' />
-          Visa
-        </div>
-        <div className='flex items-center pr-6 font-medium'>
-          <FaBalanceScaleLeft className='text-lg mr-1 sm:mr-2 text-gray-500' />
-          No Fees
-        </div>
-      </div>
+      <QuickInfo apr='0.50' cardtype='Visa' nofees={true} />
       <div className='line-clamp-2 text-gray-500'>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pretium
         dolor non sapien varius aliquet. Duis pretium faucibus finibus. Duis
@@ -80,6 +67,6 @@ export const BankPreviewCard: React.FC = () => {
         </div>
         <div></div>
       </div>
-    </div>
+    </Card>
   );
 };
