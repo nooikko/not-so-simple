@@ -1,4 +1,3 @@
-import 'tailwindcss/tailwind.css';
 import { PageLayout, BankFilters, BankPreviewCard } from '@components/general';
 
 const Home = () => {
