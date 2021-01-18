@@ -8,6 +8,10 @@ type User {
   hash: String!
 }
 
+type AvailableFeature {
+  title: String!
+}
+
 type BankFeature {
   title: String!
   hasFeature: Boolean!
@@ -37,6 +41,7 @@ type Bank {
 type Query {
   allBanks: [Bank]!
   allUsers: [User]!
+  allAvailableFeatures: [AvailableFeature]!
   findBankByName(name: String!): Bank
   findUserByEmail(email: String!): User
 }
