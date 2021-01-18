@@ -1,0 +1,42 @@
+enum CardType {
+  VISA
+  MASTERCARD
+}
+
+type User {
+  email: String!
+  hash: String!
+}
+
+type BankFeature {
+  title: String!
+  hasFeature: Boolean!
+}
+
+type FeatureDescription {
+  belongsTo: Bank
+  title: String!
+  releaseDate: String
+  description: String!
+}
+
+type Bank {
+  name: String!
+  apr: String
+  backer: String
+  cardType: CardType
+  description: String
+  noFees: Boolean
+  webUrl: String
+  iosUrl: String
+  androidUrl: String
+  featureDescription: [FeatureDescription]! @relation
+  features: BankFeature
+}
+
+type Query {
+  allBanks: [Bank]!
+  allUsers: [User]!
+  findBankByName(name: String!): Bank
+  findUserByEmail(email: String!): User
+}
