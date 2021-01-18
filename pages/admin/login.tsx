@@ -3,7 +3,7 @@ import 'antd/dist/antd.css';
 import { Input, Form, Button } from 'antd';
 import cookies from 'js-cookie';
 import { useRouter } from 'next/router';
-import { Card } from '@components';
+import { Card } from '@components/general';
 import axios from 'axios';
 import { useState } from 'react';
 

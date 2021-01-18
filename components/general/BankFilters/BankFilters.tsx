@@ -1,4 +1,4 @@
-import { Checkbox } from '@components';
+import { Checkbox } from '@components/general';
 
 export const BankFilters = () => {
   return (

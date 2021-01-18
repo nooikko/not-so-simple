@@ -1,4 +1,4 @@
-import { Badge } from '@components';
+import { Badge } from '@components/general';
 
 interface BankFeatureSectionProps {
   features: string[];

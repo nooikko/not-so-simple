@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { GoLinkExternal } from 'react-icons/go';
-import { Badge, Card, QuickInfo } from '@components';
+import { Badge, Card, QuickInfo } from '@components/general';
 
 const mockFeatures = [
   'Checking Account',
