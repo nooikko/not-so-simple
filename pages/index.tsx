@@ -1,17 +1,19 @@
-import { PageLayout, BankFilters, BankPreviewCard } from '@components/general';
+import {
+  PageLayout,
+  BankFilters,
+  BankPreviewCard,
+  Link,
+} from '@components/general';
 
 const Home = () => {
   return (
     <PageLayout>
       <div className='text-center text-2xl lg:text-3xl pb-24'>
-        <div>
-          Simple is{' '}
-          <a
-            className='text-purple-600 underline'
-            href='https://www.simple.com/blog/simple-is-closing'
-          >
+        <div className='flex justify-center'>
+          Simple is&nbsp;
+          <Link href='https://www.simple.com/blog/simple-is-closing'>
             closing
-          </a>
+          </Link>
           .
         </div>
         <div> Let's get you a new bank.</div>

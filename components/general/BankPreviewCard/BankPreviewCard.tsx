@@ -24,7 +24,7 @@ export const BankPreviewCard: React.FC = () => {
     <Card>
       <div>
         <div className='flex justify-between'>
-          <h2 className='text-sm font-medium text-gray-400'>BBVA</h2>
+          <div className='text-sm font-medium text-gray-400'>BBVA</div>
           <a
             href='#'
             className='flex items-center text-purple-600 hover:text-purple-800'
@@ -32,7 +32,7 @@ export const BankPreviewCard: React.FC = () => {
             Visit Site <GoLinkExternal className='pl-2 text-lg' />
           </a>
         </div>
-        <h1 className='text-2xl font-bold'>Simple</h1>
+        <div className='text-2xl font-bold'>Simple</div>
       </div>
       <QuickInfo apr='0.50' cardtype='Visa' nofees={true} />
       <div className='line-clamp-2 text-gray-500'>
@@ -54,7 +54,7 @@ export const BankPreviewCard: React.FC = () => {
       </div>
       <div className='flex justify-between mt-3'>
         <div>
-          <Link href='/bank/simple'>
+          <Link href='/banks/simple'>
             <a>
               <button className='bg-purple-600 p-2 px-3 text-white rounded font-medium'>
                 View More

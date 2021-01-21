@@ -1,15 +1,13 @@
-import 'antd/dist/antd.css';
-import Link from 'next/link';
 import { PageLayout } from '@components/admin';
 
-const AdminBanks = () => {
+const AdminBank = () => {
   return (
     <PageLayout>
-      <div className='flex justify-end'>
-        <Link href='/admin/banks/new'>
+      <div className='flex'>
+        <Link href='/banks/simple'>
           <a>
             <button className='bg-purple-600 p-2 px-3 text-white rounded font-medium'>
-              Add Bank
+              View More
             </button>
           </a>
         </Link>
@@ -18,4 +16,4 @@ const AdminBanks = () => {
   );
 };
 
-export default AdminBanks;
+export default AdminBank;

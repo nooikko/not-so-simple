@@ -6,7 +6,8 @@ interface LinkProps {
 }
 
 export const Link: React.FC<LinkProps> = ({ children, internal, href }) => {
-  const classes = 'flex items-center text-purple-600 hover:text-purple-800';
+  const classes =
+    'flex inline-block items-center text-purple-600 hover:text-purple-800';
 
   return internal ? (
     <NextLink href={href}>

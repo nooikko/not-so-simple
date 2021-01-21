@@ -8,7 +8,7 @@ export const Menu = () => {
       </div>
       <div className='px-3' />
       <div className='hover:text-purple-600'>
-        <Link href='/admin/login'>Login</Link>
+        <Link href='/login'>Login</Link>
       </div>
     </div>
   );

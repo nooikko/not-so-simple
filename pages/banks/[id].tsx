@@ -1,4 +1,3 @@
-import 'tailwindcss/tailwind.css';
 import { useRouter } from 'next/router';
 import {
   PageLayout,
@@ -65,12 +64,10 @@ const Bank = () => {
     <PageLayout>
       <div className='mb-4'>
         <Link href='/' internal>
-          <a className='inline-block'>
-            <button className='flex items-center bg-gray-200 py-2 px-3 rounded font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-300'>
-              <FaChevronLeft className='mr-2' />
-              All Banks
-            </button>
-          </a>
+          <button className='flex items-center bg-gray-200 py-2 px-3 rounded font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-300'>
+            <FaChevronLeft className='mr-2' />
+            All Banks
+          </button>
         </Link>
       </div>
       <div className='flex grid grid-cols-1 lg:grid-cols-3 gap-4'>
@@ -80,7 +77,7 @@ const Bank = () => {
               <div className='flex justify-between'>
                 <h2 className='text-sm font-medium text-gray-400'>BBVA</h2>
               </div>
-              <h1 className='text-3xl font-bold'>Simple</h1>
+              <div className='text-3xl font-bold'>Simple</div>
             </div>
             <QuickInfo apr='0.50' cardtype='Visa' nofees={true} />
             <div>{lorem}</div>
@@ -111,30 +108,30 @@ const Bank = () => {
         </div>
         <div>
           <Card>
-            <h1 className='text-lg font-medium'>Additional Information</h1>
+            <div className='text-lg font-medium'>Additional Information</div>
             <div>
-              <h2 className='font-medium text-gray-500'>Website</h2>
+              <div className='font-medium text-gray-500'>Website</div>
               <Link href='https://simple.com'>https://simple.com</Link>
             </div>
             <div>
-              <h2 className='font-medium text-gray-500'>Android App</h2>
+              <div className='font-medium text-gray-500'>Android App</div>
               <Link href='https://play.google.com/store/apps/details?id=com.banksimple'>
                 https://play.google.com/store/apps/details?id=com.banksimple
               </Link>
             </div>
             <div>
-              <h2 className='font-medium text-gray-500'>iOS App</h2>
+              <div className='font-medium text-gray-500'>iOS App</div>
               <Link href='https://apps.apple.com/us/app/simple-mobile-banking/id479317486'>
                 https://apps.apple.com/us/app/simple-mobile-banking/id479317486
               </Link>
             </div>
-            <h1 className='text-lg font-medium'>Support</h1>
+            <div className='text-lg font-medium'>Support</div>
             <div>
-              <h2 className='font-medium text-gray-500'>Phone Number</h2>
+              <div className='font-medium text-gray-500'>Phone Number</div>
               <Link href='tel:1 (888) 248-0632'>1 (888) 248-0632</Link>
             </div>
             <div>
-              <h2 className='font-medium text-gray-500'>Email Support</h2>
+              <div className='font-medium text-gray-500'>Email Support</div>
               <Link href='mailto:none@simple.com'>none@simple.com</Link>
             </div>
           </Card>
