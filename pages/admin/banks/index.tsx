@@ -1,4 +1,5 @@
 import { PageLayout } from '@components/admin';
+import Link from 'next/link';
 
 const AdminBank = () => {
   return (
