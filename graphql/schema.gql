@@ -12,30 +12,20 @@ type AvailableFeature {
   title: String!
 }
 
-type BankFeature {
-  title: String!
-  hasFeature: Boolean!
-}
-
-type FeatureDescription {
-  belongsTo: Bank
-  title: String!
-  releaseDate: String
-  description: String!
-}
-
 type Bank {
+  backer: String
   name: String!
   apr: String
-  backer: String
   cardType: CardType
-  description: String
   noFees: Boolean
+  description: String
   webUrl: String
   iosUrl: String
   androidUrl: String
-  featureDescription: [FeatureDescription]! @relation
-  features: BankFeature
+  features: [String]!
+  phone: String
+  chat: String
+  email: String
 }
 
 type Query {

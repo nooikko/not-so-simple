@@ -1,148 +1,112 @@
-import { useRouter } from 'next/router';
+import { PageLayout } from '@components/general';
 import {
-  PageLayout,
-  QuickInfo,
-  Card,
-  Link,
-  BankFeatureSection,
-  FeatureDescription,
-} from '@components/general';
-import { FaChevronLeft } from 'react-icons/fa';
-import { Input } from 'antd';
+  BankInfoForm,
+  BankLinkForm,
+  BankFeatureForm,
+  BankFeatureFormDataType,
+  BankInfoFormDataType,
+  BankLinkFormDataType,
+} from '@components/admin';
+import { Steps } from 'antd';
+import { useState } from 'react';
+import { gql, useMutation } from '@apollo/client';
 
-const mockFeatures = [
-  'Checking Account',
-  'Savings Account',
-  'Joint Accounts',
-  'Goals',
-  'Round Up',
-  'Mobile Deposits',
-  'Checks',
-  'Venmo',
-  'Incoming Wires',
-  'No Fees',
-  'Plaid Integration',
-  '2FA',
-];
+const ADD_BANK = gql`
+  mutation ADD_BANK($data: BankInput!) {
+    createBank(data: $data) {
+      _id
+      name
+    }
+  }
+`;
 
-const mockMissing = [
-  'Expenses',
-  'Safe To Spend',
-  'Instant Account to Account Transfer',
-  'Automatic Goal Funding',
-  'Automatic Expense Funding',
-  'Automatic Goal/Expense Spending',
-  'ACH Transfers',
-  'Transaction Notifications',
-  'Apple Pay',
-  'Google Pay',
-  'CSV/JSON Export',
-  'Graphical Analysis',
-  'Dark Mode UI',
-  'Custom Transaction Notes',
-  'Modern UI',
-  'Real-Time Accuracy',
-];
+interface AddBankDataShape
+  extends BankFeatureFormDataType,
+    BankInfoFormDataType,
+    BankLinkFormDataType {}
 
-const mockOther = [
-  'Investing Options',
-  'Online Bill Pay',
-  'Zelle',
-  'Outgoing Wires',
-];
+interface AddBankDataType {
+  data: AddBankDataShape;
+}
 
-const lorem = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-pretium dolor non sapien varius aliquet. Duis pretium faucibus
-finibus. Duis maximus ligula nunc, eu luctus nisi convallis at.
-Suspendisse auctor justo et urna vestibulum tincidunt. Proin sem
-enim, tempus nec consequat non, bibendum id lectus. In hac
-habitasse platea dictumst.`;
+interface AddBankResponseType {
+  data: {
+    _id: string;
+    name: string;
+  };
+}
 
 const Bank = () => {
-  const { query } = useRouter();
+  const [step, setStep] = useState(0);
+  const [bankInfo, setBankInfo] = useState<BankInfoFormDataType>(null);
+  const [bankLinks, setBankLinks] = useState<BankLinkFormDataType>(null);
+  const [bankFeatuers, setBankFeatuers] = useState<BankFeatureFormDataType>(
+    null,
+  );
+
+  const [addBank, { data: addBankResponse }] = useMutation<
+    AddBankResponseType,
+    AddBankDataType
+  >(ADD_BANK);
+
+  const incrementStep = () => {
+    if (step < 2) {
+      setStep(step + 1);
+    }
+  };
+
+  const decrementStep = () => {
+    if (step > 0) {
+      setStep(step - 1);
+    }
+  };
+
+  const onSubmit = (bankFeatuers: BankFeatureFormDataType) => {
+    const data = { ...bankInfo, ...bankLinks, ...bankFeatuers };
+
+    addBank({
+      variables: {
+        data,
+      },
+    });
+  };
 
   return (
     <PageLayout>
-      <div className='mb-4'>
-        <Link href='/' internal>
-          <button className='flex items-center bg-gray-200 py-2 px-3 rounded font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-300'>
-            <FaChevronLeft className='mr-2' />
-            All Banks
-          </button>
-        </Link>
-      </div>
-      <div
-        id='#important'
-        className='flex grid grid-cols-1 lg:grid-cols-3 gap-4'
-      >
-        <div className='lg:col-span-2'>
-          <Card>
-            <div>
-              <div className='flex justify-between'>
-                <h2 className='text-sm font-medium text-gray-400'>
-                  <Input />
-                </h2>
-              </div>
-              <div className='text-3xl font-bold'>
-                <Input className='text-3xl font-bold' />
-              </div>
-            </div>
-            <QuickInfo apr='0.50' cardtype='Visa' nofees={true} />
-            <div>{lorem}</div>
-            <BankFeatureSection
-              title='Matching Features'
-              features={mockFeatures}
-              color='green'
+      <div className='flex justify-center'>
+        <div className='w-1/2'>
+          <div className='my-12'>
+            <Steps current={step}>
+              <Steps.Step title='Bank Info' />
+              <Steps.Step title='Links' />
+              <Steps.Step title='Features' />
+            </Steps>
+          </div>
+          {step === 0 && (
+            <BankInfoForm
+              onFinish={setBankInfo}
+              onNext={incrementStep}
+              defaults={bankInfo}
             />
-            <BankFeatureSection
-              title='Missing Features'
-              features={mockMissing}
-              color='red'
+          )}
+          {step === 1 && (
+            <BankLinkForm
+              onFinish={setBankLinks}
+              onNext={incrementStep}
+              onCancel={decrementStep}
+              defaults={bankLinks}
             />
-            <BankFeatureSection
-              title='Other Features'
-              features={mockOther}
-              color='blue'
+          )}
+          {step === 2 && (
+            <BankFeatureForm
+              onFinish={(values) => {
+                setBankFeatuers(values);
+                onSubmit(values);
+              }}
+              onCancel={decrementStep}
+              defaults={bankFeatuers}
             />
-            <div>
-              <h3 className='text-lg font-medium mb-2'>Feature Descriptions</h3>
-              <FeatureDescription
-                title='Expenses'
-                releaseDate='Q1 2021'
-                description={lorem}
-              />
-            </div>
-          </Card>
-        </div>
-        <div>
-          <Card>
-            <div className='text-lg font-medium'>Additional Information</div>
-            <div>
-              <div className='font-medium text-gray-500'>Website</div>
-              <Link href='https://simple.com'>https://simple.com</Link>
-            </div>
-            <div>
-              <div className='font-medium text-gray-500'>Android App</div>
-              <Link href='https://play.google.com/store/apps/details?id=com.banksimple'>
-                https://play.google.com/store/apps/details?id=com.banksimple
-              </Link>
-            </div>
-            <div>
-              <div className='font-medium text-gray-500'>iOS App</div>
-              <Link href='https://apps.apple.com/us/app/simple-mobile-banking/id479317486'>
-                https://apps.apple.com/us/app/simple-mobile-banking/id479317486
-              </Link>
-            </div>
-            <div className='text-lg font-medium'>Support</div>
-            <div>
-              <div className='font-medium text-gray-500'>Phone Number</div>
-              <Link href='tel:1 (888) 248-0632'>1 (888) 248-0632</Link>
-            </div>
-            <div>
-              <div className='font-medium text-gray-500'>Email Support</div>
-              <Link href='mailto:none@simple.com'>none@simple.com</Link>
-            </div>
-          </Card>
+          )}
         </div>
       </div>
     </PageLayout>

@@ -1,9 +1,15 @@
+import { ApolloProvider } from '@apollo/client';
+import { useApollo } from '../apollo';
 import '../styles/globals.css';
 import 'tailwindcss/tailwind.css';
 import 'antd/dist/antd.css';
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />;
-}
+export default function App({ Component, pageProps }) {
+  const apolloClient = useApollo(pageProps.initialApolloState);
 
-export default MyApp;
+  return (
+    <ApolloProvider client={apolloClient}>
+      <Component {...pageProps} />
+    </ApolloProvider>
+  );
+}
