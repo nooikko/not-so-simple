@@ -59,7 +59,7 @@ const Home = () => {
           <label>Filters</label>
           <Select
             isMulti
-            styles={{ input: { fontSize: '16px' }}}
+            styles={{ input: () => ({ fontSize: '16px', })}}
             instanceId='filter-select'
             options={buildFilters()}
             onChange={setFilters}
