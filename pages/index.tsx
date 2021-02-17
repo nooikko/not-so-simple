@@ -1,9 +1,4 @@
-import {
-  PageLayout,
-  BankFilters,
-  BankPreviewCard,
-  Link,
-} from '@components/general';
+import { PageLayout, BankFilters, BankPreviewCard, Link } from '@components';
 
 const Home = () => {
   return (

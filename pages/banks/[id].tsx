@@ -6,7 +6,7 @@ import {
   Link,
   BankFeatureSection,
   FeatureDescription,
-} from '@components/general';
+} from '@components';
 import { FaChevronLeft } from 'react-icons/fa';
 
 const mockFeatures = [
