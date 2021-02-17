@@ -7,7 +7,7 @@
   "Joint Accounts": "joint",
   "Expenses": "expenses",
   "Goals": "goals",
-  "Safe To Spend": "safetospend",
+  "Safe to Spend": "safetospend",
   "Round Up": "roundup",
   "Savings Rate": "savingsrate",
   "Online Bill Pay": "onlinebillpay",
@@ -20,6 +20,7 @@
   "No Fees": "nofees",
   "Business Banking": "businessbanking",
   "Cash App": "cashapp",
+  "Instant Internal Account Transfers": "instantinternaltransfer",
   "Instant Account to Account Transfer": "instantaccounttransfer",
   "Automatic Goal Funding": "automaticgoalfunding",
   "Automatic Expense Funding": "autommaticexpensefunding",
@@ -50,6 +51,6 @@
   "Website": "website",
   "Plaid Integration": "plaid",
   "Web": "webapp",
-  "Ios": "ios",
+  "iOS": "ios",
   "Android": "android"
 }
