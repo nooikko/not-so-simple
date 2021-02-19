@@ -51,7 +51,7 @@ const Home = () => {
           <span className='text-red-500 leading-3'>
             Some data may be inaccurate while being validated.
           </span>
-          <span className='pt-2'>Last Updated: February 17, 2021</span>
+          <span className='pt-2'>Last Updated: February 18, 2021</span>
         </div>
       </div>
       <div className='flex justify-end'>
